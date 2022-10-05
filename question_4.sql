@@ -11,15 +11,15 @@ WITH outfielders AS (SELECT COUNT(po) AS outfield
 
  infielders AS (SELECT COUNT(po) AS infield
 				 FROM fielding
-				 WHERE pos = 'SS'
+				 WHERE (pos = 'SS'
 				 OR pos = '1B'
-				 OR pos = '2B'
+				 OR pos = '2B')
 			     AND yearid = 2016),
 				 
  batteries AS (SELECT COUNT(po) AS battery
 				FROM fielding
-				WHERE pos = 'P'
-				OR pos = 'C'
+				WHERE (pos = 'P'
+				OR pos = 'C')
 				AND yearid = 2016),
  of_in AS (SELECT *
 FROM outfielders
@@ -29,12 +29,7 @@ SELECT outfield, infield, battery
 FROM of_in 
 CROSS JOIN batteries;
 
-SELECT COUNT(po)
-FROM fielding
-WHERE pos = '1B'
-OR pos = 'SS'
-OR pos= '2B'
-AND yearid = 2016
+
 				
 
 				
