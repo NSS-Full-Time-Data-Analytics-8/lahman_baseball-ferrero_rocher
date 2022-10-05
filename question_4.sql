@@ -29,10 +29,12 @@ SELECT outfield, infield, battery
 FROM of_in 
 CROSS JOIN batteries;
 
-SELECT *
+SELECT COUNT(po)
 FROM fielding
-WHERE yearid = 2016
-
+WHERE pos = '1B'
+OR pos = 'SS'
+OR pos= '2B'
+AND yearid = 2016
 				
 
 				
