@@ -13,7 +13,7 @@ FROM teams
 WHERE yearid > 1969 AND wswin = 'Y' AND g >= 160
 ORDER BY w ASC;
 
---WS 
+--WSwin % among teams with best record 
 
 WITH teamwins AS (SELECT name, g, w, yearid, wswin,
 MAX(w) OVER(PARTITION BY yearid)
