@@ -11,11 +11,7 @@ WITH al as(SELECT playerid
 			FROM awardsmanagers
 			WHERE lgid = 'NL'
 			AND awardid = 'TSN Manager of the Year')
-SELECT DISTINCT(playerid), teamid,
-namelast, 
-namefirst, 
-awardsmanagers.lgid, yearid, 
-name
+SELECT namelast, namefirst, awardsmanagers.lgid, yearid, name
 FROM al 
 INNER JOIN awardsmanagers USING(playerid)
 INNER JOIN people USING (playerid)
